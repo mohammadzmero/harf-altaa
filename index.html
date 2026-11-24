@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مُغَامَرَةُ حَرْفِ التَّاءِ - مَدْرَسَةُ ذُكُورِ الشَّهِيدَيْنِ بِلَالٍ وَأَشْرَفَ الْأَسَاسِيَّةُ</title>
+    <!-- خط عربي واضح ومناسب للأطفال والصف الأول مع دعم التشكيل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-dark: #ea580c;
+            --secondary: #0ea5e9;
+            --accent: #eab308;
+            --success: #22c55e;
+            --bg-warm: #fffbeb;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #fef3c7 0%, #ffedd5 50%, #e0f2fe 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* أزرار ثلاثية الأبعاد مبهجة للأطفال */
+        .btn-3d {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.18);
+            position: relative;
+            top: 0;
+        }
+        .btn-3d:active:not(:disabled) {
+            top: 5px;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+        }
+        .btn-3d:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* حركات تفاعلية */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+
+        @keyframes gentleShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-8px); }
+            80% { transform: translateX(8px); }
+        }
+        .animate-gentle-shake {
+            animation: gentleShake 0.5s ease-in-out;
+        }
+
+        @keyframes popSuccess {
+            0% { transform: scale(0.95); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        .animate-pop-success {
+            animation: popSuccess 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes pulseSpeaker {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.6); }
+            50% { transform: scale(1.06); box-shadow: 0 0 0 12px rgba(14, 165, 233, 0); }
+        }
+        .speaker-pulse {
+            animation: pulseSpeaker 2s infinite;
+        }
+
+        /* حركات لعبة اصطياد البالونات */
+        @keyframes balloonFloat {
+            0%, 100% { transform: translateY(0px) rotate(-3deg); }
+            50% { transform: translateY(-22px) rotate(3deg); }
+        }
+        .balloon-item {
+            animation: balloonFloat 3.2s ease-in-out infinite;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        .balloon-item:hover {
+            transform: scale(1.08);
+        }
+
+        @keyframes balloonPopAnim {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.45); opacity: 0.7; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .balloon-popped {
+            animation: balloonPopAnim 0.4s ease-out forwards !important;
+            pointer-events: none;
+        }
+
+        @keyframes starBurst {
+            0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(1.4); opacity: 0; }
+        }
+        .burst-star {
+            position: absolute;
+            pointer-events: none;
+            animation: starBurst 0.8s ease-out forwards;
+            font-size: 1.8rem;
+            z-index: 50;
+        }
+
+        /* تنسيق التشكيل الواضح */
+        .arabic-vowel-text {
+            line-height: 1.85;
+            letter-spacing: 0.01em;
+        }
+
+        /* شهادة التقدير للطباعة */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #certificate-print-area, #certificate-print-area * {
+                visibility: visible;
+            }
+            #certificate-print-area {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                box-shadow: none !important;
+                border: 8px double #d97706 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- الترويسة الثابتة -->
+    <header class="bg-white/95 backdrop-blur-md shadow-md border-b-4 border-orange-400 sticky top-0 z-40 px-3 py-2.5 sm:px-6">
+        <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <!-- بيانات المدرسة والمعلم -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-3xl sm:text-4xl font-black shadow-md border-2 border-white">
+                    ت
+                </div>
+                <div>
+                    <h1 class="text-sm sm:text-lg font-extrabold text-orange-700 leading-tight">
+                        مَدْرَسَةُ ذُكُورِ الشَّهِيدَيْنِ بِلَالٍ وَأَشْرَفَ الْأَسَاسِيَّةُ
+                    </h1>
+                    <p class="text-xs sm:text-sm font-bold text-slate-600">
+                        إِعْدَادُ الْمُعَلِّمِ: <span class="text-sky-700">مُحَمَّد عَبْدِ الرَّحْمَنِ</span> | دَرْسُ: <span class="text-amber-600 font-black">حَرْفُ التَّاءِ</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- شريط التقدم والنجوم للطالب -->
+            <div id="header-stats" class="hidden flex items-center gap-2 sm:gap-4">
+                <div class="bg-amber-100 border-2 border-amber-400 px-3 py-1 rounded-2xl flex items-center gap-1.5">
+                    <span class="text-xl">⭐</span>
+                    <span id="stars-count" class="text-lg sm:text-xl font-black text-amber-800">٠</span>
+                </div>
+                <div class="bg-sky-100 border-2 border-sky-400 px-3 py-1 rounded-2xl flex items-center gap-1.5">
+                    <span class="text-sm sm:text-base font-extrabold text-sky-800" id="stage-badge">الْمَرْحَلَةُ ١ / ٦</span>
+                </div>
+                <button onclick="repeatCurrentInstruction()" title="إِعَادَةُ السَّمَاعِ" class="btn-3d bg-sky-500 hover:bg-sky-600 text-white px-3 py-1.5 rounded-2xl font-bold text-sm sm:text-base flex items-center gap-1">
+                    <span>🔊</span>
+                    <span class="hidden sm:inline">اِسْمَعْ</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للعبة -->
+    <main class="flex-grow flex items-center justify-center p-3 sm:p-6">
+        <div id="app-container" class="w-full max-w-4xl">
+            
+            <!-- شاشة البداية -->
+            <section id="screen-welcome" class="bg-white rounded-3xl shadow-2xl border-4 border-orange-300 p-6 sm:p-10 text-center relative overflow-hidden">
+                <!-- زينة خلفية -->
+                <div class="absolute -top-6 -right-6 text-7xl opacity-15 pointer-events-none">🍎</div>
+                <div class="absolute -bottom-6 -left-6 text-7xl opacity-15 pointer-events-none">🌴</div>
+
+                <div class="inline-flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-amber-400 to-orange-500 text-white text-5xl sm:text-6xl font-black shadow-lg mb-4 animate-float border-4 border-white">
+                    ت
+                </div>
+
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-800 mb-3 arabic-vowel-text">
+                    أَهْلاً وَسَهْلاً بِكَ يَا بَطَلُ فِي <span class="text-orange-600">مُغَامَرَةِ حَرْفِ التَّاءِ</span>!
+                </h2>
+
+                <p class="text-base sm:text-xl font-bold text-slate-600 mb-5 arabic-vowel-text">
+                    هَيَّا نَكْتُبُ اسْمَنَا الْجَمِيلَ أَوْ نَخْتَارُهُ لِنَبْدَأَ الْمُغَامَرَةَ!
+                </p>
+
+                <!-- زر سماع الترحيب -->
+                <div class="mb-5">
+                    <button onclick="speakWelcome()" class="btn-3d speaker-pulse bg-sky-500 hover:bg-sky-600 text-white font-extrabold text-lg sm:text-xl px-6 py-3 rounded-2xl inline-flex items-center gap-2">
+                        <span class="text-2xl">🔊</span>
+                        <span>اِسْمَعِ التَّرْحِيبَ</span>
+                    </button>
+                </div>
+
+                <!-- إدخال اسم الطالب أو اختيار سريع -->
+                <div class="max-w-md mx-auto mb-6">
+                    <label for="student-name-input" class="block text-right text-lg font-extrabold text-orange-700 mb-2">
+                        اِسْمُ الطَّالِبِ الْبَطَلِ:
+                    </label>
+                    <input type="text" id="student-name-input" placeholder="اُكْتُبِ اسْمَكَ هُنَا..." 
+                        class="w-full text-center text-xl sm:text-2xl font-black text-slate-800 bg-amber-50 border-4 border-amber-400 focus:border-orange-500 focus:outline-none rounded-2xl py-3.5 px-5 shadow-inner"
+                        onkeypress="if(event.key === 'Enter') startGame()">
+                    
+                    <!-- أزرار اختيار سريع لأسماء شائعة لمساعدة طالب الصف الأول -->
+                    <div class="mt-3">
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 mb-2">أَوِ اخْتَرْ اسْماً سَرِيعاً:</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <button type="button" onclick="selectQuickName('تَميم')" class="bg-sky-100 hover:bg-sky-200 text-sky-800 font-extrabold px-3 py-1 rounded-xl border border-sky-300 text-sm">تَميم</button>
+                            <button type="button" onclick="selectQuickName('تامِر')" class="bg-sky-100 hover:bg-sky-200 text-sky-800 font-extrabold px-3 py-1 rounded-xl border border-sky-300 text-sm">تامِر</button>
+                            <button type="button" onclick="selectQuickName('بِلَال')" class="bg-sky-100 hover:bg-sky-200 text-sky-800 font-extrabold px-3 py-1 rounded-xl border border-sky-300 text-sm">بِلَال</button>
+                            <button type="button" onclick="selectQuickName('أَشْرَف')" class="bg-sky-100 hover:bg-sky-200 text-sky-800 font-extrabold px-3 py-1 rounded-xl border border-sky-300 text-sm">أَشْرَف</button>
+                            <button type="button" onclick="selectQuickName('مُحَمَّد')" class="bg-sky-100 hover:bg-sky-200 text-sky-800 font-extrabold px-3 py-1 rounded-xl border border-sky-300 text-sm">مُحَمَّد</button>
+                        </div>
+                    </div>
+
+                    <p id="name-error-msg" class="hidden text-red-600 font-extrabold text-base mt-2">
+                        ⚠️ مِنْ فَضْلِكَ اُكْتُبِ اسْمَكَ أَوِ اخْتَرْهُ أَوَّلاً يَا بَطَلُ!
+                    </p>
+                </div>
+
+                <button onclick="startGame()" class="btn-3d bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-black text-2xl sm:text-3xl px-10 py-4 rounded-3xl shadow-xl inline-flex items-center gap-3">
+                    <span>اِبْدَأِ اللُّعْبَةَ</span>
+                    <span class="text-3xl">🚀</span>
+                </button>
+            </section>
+
+            <!-- شاشة اللعب النشطة (تتغير حسب المرحلة) -->
+            <section id="screen-game" class="hidden bg-white rounded-3xl shadow-2xl border-4 border-sky-300 p-4 sm:p-8 relative">
+                <!-- شريط معلومات المرحلة والسؤال -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-5 border-b-2 border-slate-100">
+                    <div class="flex items-center gap-2">
+                        <span id="stage-icon" class="text-3xl sm:text-4xl">🎯</span>
+                        <div>
+                            <h2 id="stage-title" class="text-xl sm:text-2xl font-black text-sky-800 arabic-vowel-text"></h2>
+                            <p id="stage-subtitle" class="text-sm sm:text-base font-bold text-slate-500 arabic-vowel-text"></p>
+                        </div>
+                    </div>
+
+                    <!-- مؤشر الأسئلة داخل المرحلة -->
+                    <div id="question-progress-dots" class="flex items-center gap-1.5 flex-wrap"></div>
+                </div>
+
+                <!-- صندوق التعليمة الصوتية الرئيسية -->
+                <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-3 sm:p-4 mb-6 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <button onclick="repeatCurrentInstruction()" class="btn-3d speaker-pulse bg-orange-500 hover:bg-orange-600 text-white w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex flex-col items-center justify-center shrink-0">
+                            <span class="text-2xl sm:text-3xl">🔊</span>
+                            <span class="text-xs font-extrabold">اِسْمَعْ</span>
+                        </button>
+                        <p id="instruction-text" class="text-lg sm:text-2xl font-extrabold text-slate-800 arabic-vowel-text"></p>
+                    </div>
+                </div>
+
+                <!-- منطقة التفاعل الديناميكية للمرحلة -->
+                <div id="stage-content" class="min-h-[260px] flex flex-col justify-center"></div>
+
+                <!-- شريط التغذية الراجعة والتشجيع -->
+                <div id="feedback-banner" class="hidden mt-6 p-4 rounded-2xl text-center font-black text-xl sm:text-2xl border-4 transition-all arabic-vowel-text"></div>
+
+                <!-- زر الانتقال للسؤال أو المرحلة التالية (يظهر فقط بعد الإجابة الصحيحة) -->
+                <div id="next-action-container" class="hidden mt-6 text-center">
+                    <button id="next-btn" onclick="handleNextStep()" class="btn-3d bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-black text-xl sm:text-2xl px-8 py-4 rounded-2xl inline-flex items-center gap-3">
+                        <span id="next-btn-text">السُّؤَالُ التَّالِي</span>
+                        <span class="text-2xl">⬅️</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- شاشة شهادة التقدير الختامية -->
+            <section id="screen-certificate" class="hidden">
+                <div id="certificate-print-area" class="bg-white rounded-3xl shadow-2xl border-8 border-double border-amber-500 p-6 sm:p-10 text-center relative overflow-hidden">
+                    <!-- زخارف الزوايا -->
+                    <div class="absolute top-3 right-3 text-4xl">🌟</div>
+                    <div class="absolute top-3 left-3 text-4xl">🌟</div>
+                    <div class="absolute bottom-3 right-3 text-4xl">🏆</div>
+                    <div class="absolute bottom-3 left-3 text-4xl">🎖️</div>
+
+                    <div class="bg-amber-50/70 rounded-2xl p-4 sm:p-8 border-2 border-amber-200">
+                        <p class="text-base sm:text-xl font-extrabold text-orange-700 mb-1">
+                            دَوْلَةُ فِلَسْطِينَ - وِزَارَةُ التَّرْبِيَةِ وَالتَّعْلِيمِ
+                        </p>
+                        <h2 class="text-lg sm:text-2xl font-black text-slate-800 mb-4">
+                            مَدْرَسَةُ ذُكُورِ الشَّهِيدَيْنِ بِلَالٍ وَأَشْرَفَ الْأَسَاسِيَّةُ
+                        </h2>
+
+                        <div class="inline-block bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white px-8 py-2.5 rounded-full text-2xl sm:text-4xl font-black shadow-md mb-6">
+                            شَهَادَةُ تَقْدِيرٍ وَتَفَوُّقٍ
+                        </div>
+
+                        <p class="text-lg sm:text-2xl font-bold text-slate-700 mb-2 arabic-vowel-text">
+                            تُـمْنَحُ هَذِهِ الشَّهَادَةُ لِلطَّالِبِ الْبَطَلِ:
+                        </p>
+
+                        <div id="cert-student-name" class="text-3xl sm:text-5xl font-black text-sky-700 my-4 py-2 px-6 bg-sky-50 border-b-4 border-sky-400 inline-block rounded-2xl">
+                            اسم الطالب
+                        </div>
+
+                        <p class="text-lg sm:text-2xl font-bold text-slate-700 max-w-2xl mx-auto leading-relaxed mt-3 mb-6 arabic-vowel-text">
+                            لِإِتْقَانِهِ مَهَارَاتِ دَرْسِ <span class="text-orange-600 font-black">(حَرْفُ التَّاءِ)</span> وَمَقَاطِعِهِ وَكَلِمَاتِهِ بِتَفَوُّقٍ وَنَجَاحٍ بَاهِرٍ.
+                        </p>
+
+                        <!-- النتيجة والنجوم -->
+                        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-8">
+                            <div class="bg-white border-2 border-amber-400 rounded-2xl px-6 py-3 shadow-sm">
+                                <span class="block text-sm font-bold text-slate-500">النَّتِيجَةُ النِّهَائِيَّةُ</span>
+                                <span class="text-2xl sm:text-3xl font-black text-green-600">١٠٠٪ (مُمْتَازٌ)</span>
+                            </div>
+                            <div class="bg-white border-2 border-amber-400 rounded-2xl px-6 py-3 shadow-sm">
+                                <span class="block text-sm font-bold text-slate-500">عَدَدُ النُّجُومِ</span>
+                                <span id="cert-stars" class="text-2xl sm:text-3xl font-black text-amber-500">⭐⭐⭐</span>
+                            </div>
+                        </div>
+
+                        <!-- التوقيع -->
+                        <div class="flex flex-col sm:flex-row items-center justify-around gap-4 pt-4 border-t-2 border-amber-200 text-base sm:text-xl font-extrabold text-slate-800">
+                            <div>
+                                <span class="text-slate-500 block text-sm">مُعَلِّمُ الصَّفِّ الْأَوَّلِ:</span>
+                                <span class="text-orange-700">مُحَمَّد عَبْدِ الرَّحْمَنِ</span>
+                            </div>
+                            <div class="w-16 h-16 rounded-full border-4 border-emerald-500 flex items-center justify-center text-emerald-600 font-black text-xs rotate-12 bg-emerald-50">
+                                مُتَفَوِّقٌ ⭐
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block text-sm">الصَّفُّ:</span>
+                                <span class="text-sky-700">الْأَوَّلُ الْأَسَاسِيُّ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أزرار التحكم بالشهادة -->
+                <div class="no-print flex flex-wrap items-center justify-center gap-4 mt-6">
+                    <button onclick="readCertificateAloud()" class="btn-3d speaker-pulse bg-sky-500 hover:bg-sky-600 text-white font-black text-lg sm:text-xl px-6 py-3.5 rounded-2xl flex items-center gap-2">
+                        <span>🔊</span>
+                        <span>اِسْمَعِ الشَّهَادَةَ</span>
+                    </button>
+                    <button onclick="window.print()" class="btn-3d bg-amber-500 hover:bg-amber-600 text-white font-black text-lg sm:text-xl px-6 py-3.5 rounded-2xl flex items-center gap-2">
+                        <span>🖨️</span>
+                        <span>طِبَاعَةُ الشَّهَادَةِ</span>
+                    </button>
+                    <button onclick="restartWholeGame()" class="btn-3d bg-emerald-500 hover:bg-emerald-600 text-white font-black text-lg sm:text-xl px-6 py-3.5 rounded-2xl flex items-center gap-2">
+                        <span>🔄</span>
+                        <span>الْعَبْ مَرَّةً أُخْرَى</span>
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="no-print text-center py-3 text-xs sm:text-sm font-bold text-slate-600 bg-white/60 border-t border-amber-200">
+        مَدْرَسَةُ ذُكُورِ الشَّهِيدَيْنِ بِلَالٍ وَأَشْرَفَ الْأَسَاسِيَّةُ • تَصْمِيمٌ تَعْلِيمِيٌّ تَفَاعُلِيٌّ لِلطَّلَبَةِ • الْمُعَلِّمُ مُحَمَّد عَبْدِ الرَّحْمَنِ
+    </footer>
+
+    <script>
+        // ==========================================
+        // ١. بيانات درس حرف التاء المضبوطة بالشكل الكامل
+        // ==========================================
+        const LESSON_DATA = {
+            letterShapes: [
+                {
+                    shape: 'تـ',
+                    promptHtml: 'اِخْتَرْ شَكْلَ حَرْفِ التَّاءِ <span class="text-orange-600">فِي أَوَّلِ الْكَلِمَةِ</span> (مِثْلُ: <span class="text-sky-700">تَـميم</span>):',
+                    promptSpeech: 'اِخْتَرْ شَكْلَ حَرْفِ التَّاءِ فِي أَوَّلِ الْكَلِمَةِ، مِثْلُ: تَمِيمْ'
+                },
+                {
+                    shape: 'ـتـ',
+                    promptHtml: 'اِخْتَرْ شَكْلَ حَرْفِ التَّاءِ <span class="text-emerald-600">فِي وَسَطِ الْكَلِمَةِ</span> (مِثْلُ: <span class="text-sky-700">بَـتـول</span>):',
+                    promptSpeech: 'اِخْتَرْ شَكْلَ حَرْفِ التَّاءِ فِي وَسَطِ الْكَلِمَةِ، مِثْلُ: بَتُولْ'
+                },
+                {
+                    shape: 'ت',
+                    promptHtml: 'اِخْتَرْ شَكْلَ حَرْفِ التَّاءِ <span class="text-sky-600">فِي آخِرِ الْكَلِمَةِ</span> (مِثْلُ: <span class="text-orange-700">توت</span>):',
+                    promptSpeech: 'اِخْتَرْ شَكْلَ حَرْفِ التَّاءِ فِي آخِرِ الْكَلِمَةِ، مِثْلُ: تُوتْ'
+                }
+            ],
+            longSyllables: [
+                { text: 'تا' },
+                { text: 'تو' },
+                { text: 'تي' }
+            ],
+            shortSyllables: [
+                { text: 'تَ' },
+                { text: 'تُ' },
+                { text: 'تِ' }
+            ]
+        };
+
+        // ==========================================
+        // ٢. عبارات التشجيع الإيجابية والتوجيه اللطيف
+        // ==========================================
+        const PRAISE_PHRASES = [
+            "أَحْسَنْتَ يَا بَطَلُ! إِجَابَةٌ صَحِيحَةٌ وَرَائِعَةٌ!",
+            "مُمْتَازٌ! أَنْتَ ذَكِيٌّ جِدّاً!",
+            "بَارَكَ اللَّهُ فِيكَ! إِجَابَةٌ مُمْتَازَةٌ!",
+            "رَائِعٌ يَا نَجْمَ الصَّفِّ الْأَوَّلِ!",
+            "أَبْدَعْتَ! واصِلْ تَقَدُّمَكَ الْجَمِيلَ!"
+        ];
+
+        const ENCOURAGE_RETRY_PHRASES = [
+            "مُحَاوَلَةٌ جَمِيلَةٌ يَا بَطَلُ! اِسْمَعْ مَرَّةً أُخْرَى وَحَاوِلْ ثَانِيَةً!",
+            "لَا بَأْسَ يَا صَدِيقِي، رَكِّزْ قَلِيلاً وَسَتُجِيبُ بِشَكْلٍ صَحِيحٍ!",
+            "أَنْتَ قَرِيبٌ جِدّاً! اِضْغَطْ عَلَى السَّمَّاعَةِ وَاخْتَرْ مَرَّةً أُخْرَى!",
+            "هَيَّا يَا ذَكِيُّ، جَرِّبْ مَرَّةً أُخْرَى، أَنَا وَاثِقٌ بِكَ!"
+        ];
+
+        // ==========================================
+        // ٣. حالة اللعبة والأدوات المساعدة
+        // ==========================================
+        const gameState = {
+            studentName: '',
+            stars: 0,
+            currentStage: 1,
+            currentQuestionIndex: 0,
+            stageQuestions: [],
+            questionSolved: false,
+            welcomeSpoken: false,
+            currentTargetSyllable: null,
+            currentInstructionPrefix: '',
+            currentInstructionToSpeak: ''
+        };
+
+        function toArabicDigits(num) {
+            const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+            return String(num).replace(/\d/g, d => arabicNumbers[d]);
+        }
+
+        // ==========================================
+        // ٤. نظام الصوت والنطق الذكي (Web Speech + مُوَلِّدُ النُّطْقِ الدَّقِيقُ للمقاطع)
+        // ==========================================
+        let audioCtx = null;
+
+        function initAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // مؤثر صوتي مبهج عند الإجابة الصحيحة
+        function playSuccessSound() {
+            try {
+                initAudioContext();
+                if (!audioCtx) return;
+                const notes = [523.25, 659.25, 783.99, 1046.50];
+                notes.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.1);
+                    gain.gain.setValueAtTime(0.24, audioCtx.currentTime + idx * 0.1);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.1 + 0.35);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + idx * 0.1);
+                    osc.stop(audioCtx.currentTime + idx * 0.1 + 0.36);
+                });
+            } catch (e) {}
+        }
+
+        // مؤثر صوتي لطيف ودافئ عند المحاولة الخاطئة
+        function playGentleRetrySound() {
+            try {
+                initAudioContext();
+                if (!audioCtx) return;
+                const notes = [392.00, 349.23];
+                notes.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.18);
+                    gain.gain.setValueAtTime(0.18, audioCtx.currentTime + idx * 0.18);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.18 + 0.3);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + idx * 0.18);
+                    osc.stop(audioCtx.currentTime + idx * 0.18 + 0.32);
+                });
+            } catch (e) {}
+        }
+
+        // صوت نقرة خفيفة عند الضغط على الأزرار
+        function playClickSound() {
+            try {
+                initAudioContext();
+                if (!audioCtx) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.09);
+            } catch (e) {}
+        }
+
+        // مؤثر صوتي لفرقعة البالون المبهجة
+        function playBalloonPopSound() {
+            try {
+                initAudioContext();
+                if (!audioCtx) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(980, audioCtx.currentTime + 0.12);
+                gain.gain.setValueAtTime(0.32, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.16);
+            } catch (e) {}
+        }
+
+        // معالجة صوتية ذكية خلف الكواليس لضمان وضوح مخارج الحروف والحركات والمدود
+        // مع إضافة هاء السكوت للمقاطع القصيرة (تَهْ، تُهْ، تِهْ) في النطق فقط دون الكتابة
+        function prepareTextForSpeech(rawText) {
+            const clean = rawText.trim();
+            const phoneticMap = {
+                // أشكال الحرف وصوته
+                'تـ': 'حَرْفُ التَّاءِ فِي أَوَّلِ الْكَلِمَةِ ، صَوْتُهُ تْ',
+                'ـتـ': 'حَرْفُ التَّاءِ فِي وَسَطِ الْكَلِمَةِ ، صَوْتُهُ تْ',
+                'ت': 'حَرْفُ التَّاءِ فِي آخِرِ الْكَلِمَةِ ، صَوْتُهُ تْ',
+                // المقاطع الطويلة
+                'تا': 'تَا',
+                'تو': 'تُو',
+                'تي': 'تِي',
+                // المقاطع القصيرة مع هاء السكوت في النطق فقط لإظهار الفتحة والضمة والكسرة بوضوح
+                'تَ': 'تَهْ',
+                'تُ': 'تُهْ',
+                'تِ': 'تِهْ',
+                // الكلمات التسع بنطق واضح ومفخّم/مرقّق سليم
+                'تالا': 'تَالَا',
+                'توت': 'تُوتْ',
+                'تين': 'تِينْ',
+                'تِلال': 'تِلَالْ',
+                'تُمور': 'تُمُورْ',
+                'تَميم': 'تَمِيمْ',
+                'تامِر': 'تَامِرْ',
+                'تَمام': 'تَمَامْ',
+                'بَتول': 'بَتُولْ'
+            };
+            return phoneticMap[clean] || clean;
+        }
+
+        // نطق المقطع أو الكلمة المفردة بدقة تامة
+        function speakItemClearly(itemText) {
+            const clean = itemText.trim();
+            const mapped = prepareTextForSpeech(clean);
+            speakArabic(mapped, null, 0.72);
+        }
+
+        // نطق جملة الطلب متبوعة بالمقطع الصوتي الدقيق مباشرة
+        function speakPromptWithExactSyllable(prefixSentence, syllable) {
+            const mappedSyllable = prepareTextForSpeech(syllable);
+            speakArabic(prefixSentence, () => {
+                setTimeout(() => {
+                    speakArabic(mappedSyllable, null, 0.70);
+                }, 150);
+            }, 0.85);
+        }
+
+        // دالة النطق الرئيسية باللغة العربية
+        function speakArabic(text, callback = null, customRate = 0.88) {
+            if (!('speechSynthesis' in window)) {
+                if (callback) callback();
+                return;
+            }
+            window.speechSynthesis.cancel();
+
+            // استبدال الكلمات المعزولة داخل الجمل لضمان وضوحها التام
+            let finalSpeech = text;
+            const isolatedReplacements = [
+                [/\bتالا\b/g, 'تَالَا'],
+                [/\bتوت\b/g, 'تُوتْ'],
+                [/\bتين\b/g, 'تِينْ'],
+                [/\bتِلال\b/g, 'تِلَالْ'],
+                [/\bتُمور\b/g, 'تُمُورْ'],
+                [/\bتَميم\b/g, 'تَمِيمْ'],
+                [/\bتامِر\b/g, 'تَامِرْ'],
+                [/\bتَمام\b/g, 'تَمَامْ'],
+                [/\bبَتول\b/g, 'بَتُولْ']
+            ];
+            isolatedReplacements.forEach(([regex, rep]) => {
+                finalSpeech = finalSpeech.replace(regex, rep);
+            });
+
+            const utterance = new SpeechSynthesisUtterance(finalSpeech);
+            utterance.lang = 'ar-SA';
+            utterance.rate = customRate;
+            utterance.pitch = 1.05;
+            utterance.volume = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const arabicVoice = voices.find(v => v.lang === 'ar-SA') ||
+                                voices.find(v => v.lang.startsWith('ar'));
+            if (arabicVoice) {
+                utterance.voice = arabicVoice;
+            }
+
+            if (callback) {
+                utterance.onend = callback;
+                utterance.onerror = callback;
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        // الترحيب الصوتي الفوري عند فتح اللعبة وقبل كتابة الاسم
+        const WELCOME_SPEECH = "أَهْلاً وَسَهْلاً بِكَ يَا بَطَلُ فِي لُعْبَةِ حَرْفِ التَّاءِ! هَيَّا نَكْتُبُ اسْمَنَا لِنَبْدَأَ الْمُغَامَرَةَ!";
+
+        function speakWelcome() {
+            initAudioContext();
+            gameState.welcomeSpoken = true;
+            speakArabic(WELCOME_SPEECH, null, 0.88);
+        }
+
+        function selectQuickName(name) {
+            playClickSound();
+            const input = document.getElementById('student-name-input');
+            input.value = name;
+            document.getElementById('name-error-msg').classList.add('hidden');
+            speakArabic(`أَهْلاً يَا ${name}! اِضْغَطْ عَلَى اِبْدَأِ اللُّعْبَةَ!`, null, 0.88);
+        }
+
+        // تشغيل الترحيب فور تحميل الصفحة + تفعيل الترحيب عند أول لمسة للشاشة إذا حظر المتصفح التشغيل التلقائي
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                speakWelcome();
+            }, 350);
+
+            const unlockWelcomeOnFirstTouch = () => {
+                if (!gameState.welcomeSpoken || !window.speechSynthesis.speaking) {
+                    if (document.getElementById('screen-welcome') && !document.getElementById('screen-welcome').classList.contains('hidden')) {
+                        speakWelcome();
+                    }
+                }
+                document.removeEventListener('pointerdown', unlockWelcomeOnFirstTouch);
+                document.removeEventListener('keydown', unlockWelcomeOnFirstTouch);
+            };
+
+            document.addEventListener('pointerdown', unlockWelcomeOnFirstTouch, { once: true });
+            document.addEventListener('keydown', unlockWelcomeOnFirstTouch, { once: true });
+        });
+
+        function repeatCurrentInstruction() {
+            playClickSound();
+            if (gameState.currentTargetSyllable) {
+                speakPromptWithExactSyllable(gameState.currentInstructionPrefix, gameState.currentTargetSyllable);
+            } else if (gameState.currentInstructionToSpeak) {
+                speakArabic(gameState.currentInstructionToSpeak, null, 0.85);
+            }
+        }
+
+        // ==========================================
+        // ٥. بدء اللعبة وإدارة المراحل الست
+        // ==========================================
+        function startGame() {
+            initAudioContext();
+            const nameInput = document.getElementById('student-name-input');
+            const errorMsg = document.getElementById('name-error-msg');
+            const nameVal = nameInput.value.trim();
+
+            if (!nameVal) {
+                errorMsg.classList.remove('hidden');
+                nameInput.classList.add('animate-gentle-shake', 'border-red-500');
+                speakArabic("مِنْ فَضْلِكَ اُكْتُبِ اسْمَكَ أَوَّلاً يَا بَطَلُ!", null, 0.88);
+                setTimeout(() => nameInput.classList.remove('animate-gentle-shake'), 600);
+                return;
+            }
+
+            errorMsg.classList.add('hidden');
+            gameState.studentName = nameVal;
+            gameState.stars = 0;
+            gameState.currentStage = 1;
+            gameState.currentTargetSyllable = null;
+            gameState.currentInstructionPrefix = '';
+
+            document.getElementById('screen-welcome').classList.add('hidden');
+            document.getElementById('screen-game').classList.remove('hidden');
+            document.getElementById('header-stats').classList.remove('hidden');
+
+            updateHeaderStats();
+            loadStage(1);
+        }
+
+        function updateHeaderStats() {
+            document.getElementById('stars-count').textContent = toArabicDigits(gameState.stars);
+            document.getElementById('stage-badge').textContent = `الْمَرْحَلَةُ ${toArabicDigits(gameState.currentStage)} / ٦`;
+        }
+
+        function addStar(count = 1) {
+            gameState.stars += count;
+            updateHeaderStats();
+        }
+
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        // تحميل المرحلة المطلوبة (٦ مراحل شاملة ومتدرجة)
+        function loadStage(stageNum) {
+            gameState.currentStage = stageNum;
+            gameState.currentQuestionIndex = 0;
+            gameState.questionSolved = false;
+            updateHeaderStats();
+            hideFeedback();
+
+            const stageIcon = document.getElementById('stage-icon');
+            const stageTitle = document.getElementById('stage-title');
+            const stageSubtitle = document.getElementById('stage-subtitle');
+
+            if (stageNum === 1) {
+                // المرحلة ١: أشكال حرف التاء وصوته (تْ): تـ في أول الكلمة، ـتـ في وسط الكلمة، ت في آخر الكلمة
+                stageIcon.textContent = '🔤';
+                stageTitle.textContent = 'الْمَرْحَلَةُ الْأُولَى: أَشْكَالُ حَرْفِ التَّاءِ وَصَوْتُهُ (تْ)';
+                stageSubtitle.textContent = 'تَعَرَّفْ عَلَى (تـ) فِي أَوَّلِ الْكَلِمَةِ، (ـتـ) فِي وَسَطِ الْكَلِمَةِ، وَ(ت) فِي آخِرِ الْكَلِمَةِ';
+                setupStage1Shapes();
+                renderStage1ShapeQuestion();
+            } else if (stageNum === 2) {
+                // المرحلة ٢: المقاطع الطويلة (تا - تو - تي) -> طلب مباشر دون قراءة البطاقات مسبقاً
+                stageIcon.textContent = '📢';
+                stageTitle.textContent = 'الْمَرْحَلَةُ الثَّانِيَة: الْمَقَاطِعُ الطَّوِيلَةُ (تا - تو - تي)';
+                stageSubtitle.textContent = 'اِسْمَعِ الطَّلَبَ وَاخْتَرِ الْمَقْطَعَ الطَّوِيلَ الصَّحِيحَ مُبَاشَرَةً';
+                setupStage2LongSyllables();
+                renderSyllableChoiceQuestion('long');
+            } else if (stageNum === 3) {
+                // المرحلة ٣: المقاطع القصيرة (تَ - تُ - تِ) -> طلب مباشر دون قراءة البطاقات مسبقاً
+                stageIcon.textContent = '🎵';
+                stageTitle.textContent = 'الْمَرْحَلَةُ الثَّالِثَة: الْمَقَاطِعُ الْقَصِيرَةُ (تَ - تُ - تِ)';
+                stageSubtitle.textContent = 'اِسْمَعِ الطَّلَبَ وَاخْتَرِ الْمَقْطَعَ الْقَصِيرَ الصَّحِيحَ مُبَاشَرَةً';
+                setupStage3ShortSyllables();
+                renderSyllableChoiceQuestion('short');
+            } else if (stageNum === 4) {
+                // المرحلة ٤: اصطياد البالونات الحركية -> ٣ جولات
+                stageIcon.textContent = '🎈';
+                stageTitle.textContent = 'الْمَرْحَلَةُ الرَّابِعَة: اِصْطِيَادُ الْبَالُونَاتِ';
+                stageSubtitle.textContent = 'اِضْغَطْ عَلَى الْبَالُونِ الَّذِي يَحْمِلُ الْمَقْطَعَ الْمَطْلُوبَ لِتُفَرْقِعَهُ!';
+                setupStage4Balloons();
+                renderStage4BalloonQuestion();
+            } else if (stageNum === 5) {
+                // المرحلة ٥: أكمل الكلمة بالمقطع الصحيح -> ٣ أسئلة
+                stageIcon.textContent = '🧩';
+                stageTitle.textContent = 'الْمَرْحَلَةُ الْخَامِسَة: أَكْمِلِ الْكَلِمَةَ بِالْمَقْطَعِ الصَّحِيحِ';
+                stageSubtitle.textContent = 'اِسْمَعِ الْكَلِمَةَ وَاخْتَرِ الْمَقْطَعَ الْمُنَاسِبَ لِإِكْمَالِهَا';
+                setupStage5Missing();
+                renderStage5Question();
+            } else if (stageNum === 6) {
+                // المرحلة ٦: التحدي الشامل لجميع كلمات حرف التاء التسع -> ٣ أسئلة شاملة
+                stageIcon.textContent = '🏆';
+                stageTitle.textContent = 'الْمَرْحَلَةُ السَّادِسَة: التَّحَدِّي الشَّامِلُ لِكَلِمَاتِ حَرْفِ التَّاءِ';
+                stageSubtitle.textContent = 'اِسْمَعْ نُطْقَ الْكَلِمَةِ جَيِّداً وَاخْتَرْهَا مِنْ بَيْنِ الْكَلِمَاتِ';
+                setupStage6ComprehensiveWords();
+                renderStage6WordQuestion();
+            }
+        }
+
+        // تحديث نقاط التقدم للأسئلة
+        function renderProgressDots(total, current) {
+            const container = document.getElementById('question-progress-dots');
+            container.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const dot = document.createElement('div');
+                if (i < current) {
+                    dot.className = 'w-8 h-8 rounded-full bg-green-500 text-white font-black text-sm flex items-center justify-center shadow';
+                    dot.textContent = '✓';
+                } else if (i === current) {
+                    dot.className = 'w-9 h-9 rounded-full bg-orange-500 text-white font-black text-base flex items-center justify-center ring-4 ring-orange-200 shadow';
+                    dot.textContent = toArabicDigits(i + 1);
+                } else {
+                    dot.className = 'w-8 h-8 rounded-full bg-slate-200 text-slate-500 font-bold text-sm flex items-center justify-center';
+                    dot.textContent = toArabicDigits(i + 1);
+                }
+                container.appendChild(dot);
+            }
+        }
+
+        // ==========================================
+        // المرحلة ١: أَشْكَالُ حَرْفِ التَّاءِ وَصَوْتُهُ (تْ)
+        // ==========================================
+        function setupStage1Shapes() {
+            gameState.stageQuestions = shuffleArray(LESSON_DATA.letterShapes);
+        }
+
+        function renderStage1ShapeQuestion() {
+            gameState.questionSolved = false;
+            gameState.currentTargetSyllable = null;
+            hideFeedback();
+            const total = gameState.stageQuestions.length;
+            const current = gameState.stageQuestions[gameState.currentQuestionIndex];
+            renderProgressDots(total, gameState.currentQuestionIndex);
+
+            const fullSpeech = `يَا ${gameState.studentName}، حَرْفُ التَّاءِ صَوْتُهُ تْ. ${current.promptSpeech}`;
+            gameState.currentInstructionToSpeak = fullSpeech;
+            document.getElementById('instruction-text').innerHTML = current.promptHtml;
+
+            setTimeout(() => speakArabic(fullSpeech, null, 0.82), 250);
+
+            const shapeOptions = [
+                { shape: 'تـ', positionText: 'فِي أَوَّلِ الْكَلِمَةِ', color: 'from-amber-100 to-orange-200 border-orange-400 text-orange-900' },
+                { shape: 'ـتـ', positionText: 'فِي وَسَطِ الْكَلِمَةِ', color: 'from-emerald-100 to-teal-200 border-emerald-400 text-emerald-900' },
+                { shape: 'ت', positionText: 'فِي آخِرِ الْكَلِمَةِ', color: 'from-sky-100 to-blue-200 border-sky-400 text-sky-900' }
+            ];
+
+            const content = document.getElementById('stage-content');
+            content.innerHTML = `
+                <!-- بطاقة تذكير بصوت الحرف وأشكاله الثلاثة -->
+                <div class="text-center mb-5">
+                    <button onclick="speakArabic('حَرْفُ التَّاءِ صَوْتُهُ تْ، تـ فِي أَوَّلِ الْكَلِمَةِ، ـتـ فِي وَسَطِ الْكَلِمَةِ، وَت فِي آخِرِ الْكَلِمَةِ', null, 0.8)"
+                        class="btn-3d bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black text-base sm:text-xl px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-md">
+                        <span class="text-2xl">🔊</span>
+                        <span>حَرْفُ التَّاءِ صَوْتُهُ (تْ)</span>
+                    </button>
+                </div>
+
+                <!-- بطاقات أشكال حرف التاء الثلاثة -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto w-full" id="shapes-grid"></div>
+            `;
+
+            const grid = document.getElementById('shapes-grid');
+            shapeOptions.forEach(opt => {
+                const card = document.createElement('div');
+                card.className = `btn-3d bg-gradient-to-b ${opt.color} border-4 rounded-3xl p-5 sm:p-7 flex flex-col items-center justify-center cursor-pointer shadow-lg`;
+                card.innerHTML = `
+                    <span class="text-6xl sm:text-7xl font-black my-3 arabic-vowel-text">${opt.shape}</span>
+                    <span class="bg-white/90 text-slate-800 font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-full border-2 border-slate-200 shadow-sm mt-2">
+                        ${opt.positionText}
+                    </span>
+                `;
+                card.onclick = () => checkMultipleChoiceAnswer(card, opt.shape === current.shape, opt.shape);
+                grid.appendChild(card);
+            });
+        }
+
+        // ==========================================
+        // المرحلة ٢ و ٣: المقاطع الطويلة (تا - تو - تي) والمقاطع القصيرة (تَ - تُ - تِ)
+        // يطلب من الطالب مباشرة اختيار المقطع المطلوب دون قراءة البطاقات مسبقاً
+        // ==========================================
+        function setupStage2LongSyllables() {
+            gameState.stageQuestions = shuffleArray(LESSON_DATA.longSyllables);
+        }
+
+        function setupStage3ShortSyllables() {
+            gameState.stageQuestions = shuffleArray(LESSON_DATA.shortSyllables);
+        }
+
+        function renderSyllableChoiceQuestion(type) {
+            gameState.questionSolved = false;
+            hideFeedback();
+            const total = gameState.stageQuestions.length;
+            const current = gameState.stageQuestions[gameState.currentQuestionIndex];
+            renderProgressDots(total, gameState.currentQuestionIndex);
+
+            const labelType = type === 'long' ? 'الْمَقْطَعَ الطَّوِيلَ' : 'الْمَقْطَعَ الْقَصِيرَ';
+            const prefixSentence = `يَا ${gameState.studentName}، اِخْتَرْ ${labelType}`;
+            gameState.currentInstructionPrefix = prefixSentence;
+            gameState.currentTargetSyllable = current.text;
+            gameState.currentInstructionToSpeak = `${prefixSentence}: ${current.text}`;
+            document.getElementById('instruction-text').innerHTML = `اِخْتَرْ ${labelType} الْمَطْلُوبَ مُبَاشَرَةً:`;
+
+            setTimeout(() => speakPromptWithExactSyllable(prefixSentence, current.text), 250);
+
+            const pool = type === 'long' ? ['تا', 'تو', 'تي'] : ['تَ', 'تُ', 'تِ'];
+            const options = shuffleArray(pool);
+
+            const content = document.getElementById('stage-content');
+            content.innerHTML = `
+                <div class="text-center mb-6">
+                    <button onclick="speakItemClearly('${current.text}')" class="btn-3d bg-gradient-to-r from-sky-500 to-blue-600 text-white font-black text-xl sm:text-2xl px-8 py-4 rounded-full inline-flex items-center gap-3 shadow-lg">
+                        <span class="text-3xl">🔊</span>
+                        <span>اِسْمَعِ الْمَقْطَعَ الْمَطْلُوبَ</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto w-full" id="options-grid"></div>
+            `;
+
+            const grid = document.getElementById('options-grid');
+            const cardStyles = [
+                'from-pink-100 to-rose-200 border-rose-400 text-rose-900',
+                'from-sky-100 to-cyan-200 border-cyan-400 text-cyan-900',
+                'from-amber-100 to-yellow-200 border-amber-400 text-amber-900'
+            ];
+
+            options.forEach((optText, i) => {
+                const card = document.createElement('div');
+                card.className = `btn-3d bg-gradient-to-b ${cardStyles[i % 3]} border-4 rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center cursor-pointer`;
+                card.innerHTML = `
+                    <span class="text-6xl sm:text-7xl font-black my-4 arabic-vowel-text">${optText}</span>
+                `;
+                // يختار الطالب مباشرة دون قراءة البطاقة مسبقاً
+                card.onclick = () => checkMultipleChoiceAnswer(card, optText === current.text, optText);
+                grid.appendChild(card);
+            });
+        }
+
+        // ==========================================
+        // المرحلة ٤: اِصْطِيَادُ الْبَالُونَاتِ (لعبة تفاعلية حركية - ٣ جولات)
+        // ==========================================
+        function setupStage4Balloons() {
+            const allSix = ['تا', 'تو', 'تي', 'تَ', 'تُ', 'تِ'];
+            const chosenTargets = shuffleArray([
+                shuffleArray(['تا', 'تو', 'تي'])[0],
+                shuffleArray(['تَ', 'تُ', 'تِ'])[0],
+                shuffleArray(allSix)[2]
+            ]);
+            const uniqueTargets = Array.from(new Set(chosenTargets));
+            while (uniqueTargets.length < 3) {
+                const candidate = allSix[Math.floor(Math.random() * allSix.length)];
+                if (!uniqueTargets.includes(candidate)) uniqueTargets.push(candidate);
+            }
+            gameState.stageQuestions = uniqueTargets;
+        }
+
+        function spawnStarBurst(container, x, y) {
+            const emojis = ['⭐', '🌟', '✨', '🎉'];
+            for (let i = 0; i < 8; i++) {
+                const star = document.createElement('span');
+                star.className = 'burst-star';
+                star.textContent = emojis[i % emojis.length];
+                const angle = (Math.PI * 2 * i) / 8;
+                const dist = 65 + Math.random() * 45;
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+                star.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+                container.appendChild(star);
+                setTimeout(() => star.remove(), 850);
+            }
+        }
+
+        function renderStage4BalloonQuestion() {
+            gameState.questionSolved = false;
+            hideFeedback();
+            const total = gameState.stageQuestions.length;
+            const targetSyllable = gameState.stageQuestions[gameState.currentQuestionIndex];
+            renderProgressDots(total, gameState.currentQuestionIndex);
+
+            const prefixSentence = `يَا ${gameState.studentName}، اِصْطَدِ الْبَالُونَ الَّذِي يَحْمِلُ الْمَقْطَعَ`;
+            gameState.currentInstructionPrefix = prefixSentence;
+            gameState.currentTargetSyllable = targetSyllable;
+            gameState.currentInstructionToSpeak = `${prefixSentence}: ${targetSyllable}`;
+            document.getElementById('instruction-text').innerHTML = `اِصْطَدِ الْبَالُونَ الَّذِي يَحْمِلُ الْمَقْطَعَ: <span class="inline-block bg-orange-500 text-white px-4 py-0.5 rounded-xl text-2xl sm:text-3xl mx-1 shadow">${targetSyllable}</span>`;
+
+            setTimeout(() => speakPromptWithExactSyllable(prefixSentence, targetSyllable), 250);
+
+            // تجهيز ٥ بالونات ملونة تطفو (١ بالون صحيح + ٤ بالونات مشتتة)
+            const allSix = ['تا', 'تو', 'تي', 'تَ', 'تُ', 'تِ'];
+            const distractors = shuffleArray(allSix.filter(s => s !== targetSyllable)).slice(0, 4);
+            const balloonSyllables = shuffleArray([targetSyllable, ...distractors]);
+
+            const balloonColors = [
+                { bg: 'from-rose-400 to-red-600', border: 'border-rose-200', string: '#e11d48' },
+                { bg: 'from-sky-400 to-blue-600', border: 'border-sky-200', string: '#0284c7' },
+                { bg: 'from-amber-400 to-orange-500', border: 'border-amber-200', string: '#d97706' },
+                { bg: 'from-emerald-400 to-green-600', border: 'border-emerald-200', string: '#059669' },
+                { bg: 'from-purple-400 to-indigo-600', border: 'border-purple-200', string: '#7c3aed' }
+            ];
+
+            const content = document.getElementById('stage-content');
+            content.innerHTML = `
+                <div class="text-center mb-4">
+                    <button onclick="speakItemClearly('${targetSyllable}')" class="btn-3d bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-black text-lg sm:text-xl px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-md">
+                        <span class="text-2xl">🔊</span>
+                        <span>اِسْمَعِ الْمَقْطَعَ الْمَطْلُوبَ (${targetSyllable})</span>
+                    </button>
+                </div>
+                <div id="sky-arena" class="relative bg-gradient-to-b from-sky-200 via-sky-100 to-emerald-100 border-4 border-sky-300 rounded-3xl p-4 sm:p-6 min-h-[290px] flex flex-wrap items-center justify-around gap-4 overflow-hidden shadow-inner">
+                    <!-- سحب زخرفية -->
+                    <div class="absolute top-3 right-6 text-4xl opacity-60 pointer-events-none">☁️</div>
+                    <div class="absolute top-8 left-10 text-5xl opacity-50 pointer-events-none">☁️</div>
+                </div>
+            `;
+
+            const arena = document.getElementById('sky-arena');
+
+            balloonSyllables.forEach((syl, idx) => {
+                const color = balloonColors[idx % balloonColors.length];
+                const wrapper = document.createElement('div');
+                wrapper.className = 'balloon-item flex flex-col items-center cursor-pointer select-none z-10';
+                wrapper.style.animationDelay = `${idx * 0.45}s`;
+                wrapper.style.animationDuration = `${2.8 + (idx % 3) * 0.4}s`;
+
+                wrapper.innerHTML = `
+                    <div class="w-24 h-28 sm:w-28 sm:h-32 rounded-full bg-gradient-to-br ${color.bg} border-4 ${color.border} shadow-xl flex flex-col items-center justify-center relative">
+                        <!-- لمعة البالون -->
+                        <div class="w-4 h-7 bg-white/40 rounded-full absolute top-3 right-4 rotate-12"></div>
+                        <span class="text-3xl sm:text-4xl font-black text-white drop-shadow arabic-vowel-text">${syl}</span>
+                        <button type="button" class="mt-1 bg-white/90 hover:bg-white text-slate-800 text-xs font-extrabold px-2.5 py-0.5 rounded-full shadow"
+                            onclick="event.stopPropagation(); speakItemClearly('${syl}')">
+                            🔊
+                        </button>
+                    </div>
+                    <!-- عقدة وخيط البالون -->
+                    <div class="w-3 h-2.5 bg-slate-600 -mt-1 clip-triangle rounded-b-sm"></div>
+                    <svg width="20" height="36" viewBox="0 0 20 36" class="-mt-0.5">
+                        <path d="M10 0 Q 16 12, 10 20 T 10 36" fill="none" stroke="${color.string}" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                `;
+
+                wrapper.onclick = (e) => {
+                    if (gameState.questionSolved) return;
+                    if (syl === targetSyllable) {
+                        playBalloonPopSound();
+                        const rect = arena.getBoundingClientRect();
+                        const x = e.clientX ? (e.clientX - rect.left) : arena.clientWidth / 2;
+                        const y = e.clientY ? (e.clientY - rect.top) : arena.clientHeight / 2;
+                        spawnStarBurst(arena, x, y);
+                        wrapper.classList.add('balloon-popped');
+                        handleCorrectAnswer(targetSyllable);
+                    } else {
+                        wrapper.classList.add('animate-gentle-shake');
+                        setTimeout(() => wrapper.classList.remove('animate-gentle-shake'), 600);
+                        handleWrongAnswer();
+                    }
+                };
+
+                arena.appendChild(wrapper);
+            });
+        }
+
+        // ==========================================
+        // المرحلة ٥: أَكْمِلِ الْكَلِمَةَ بِالْمَقْطَعِ الصَّحِيحِ (٣ أسئلة)
+        // ==========================================
+        function setupStage5Missing() {
+            const missingPool = [
+                { word: 'تالا', missing: 'تا', display: '___لا', emoji: '👧', choices: ['تا', 'تو', 'تي'] },
+                { word: 'تُمور', missing: 'تُ', display: '___مور', emoji: '🌴', choices: ['تُ', 'تِ', 'تَ'] },
+                { word: 'بَتول', missing: 'تو', display: 'بَ___ل', emoji: '🧕', choices: ['تو', 'تا', 'تي'] }
+            ];
+            gameState.stageQuestions = shuffleArray(missingPool);
+        }
+
+        function renderStage5Question() {
+            gameState.questionSolved = false;
+            gameState.currentTargetSyllable = null;
+            hideFeedback();
+            const total = gameState.stageQuestions.length;
+            const current = gameState.stageQuestions[gameState.currentQuestionIndex];
+            renderProgressDots(total, gameState.currentQuestionIndex);
+
+            const fullSpeech = `أَكْمِلْ كَلِمَةَ: ${prepareTextForSpeech(current.word)}`;
+            gameState.currentInstructionToSpeak = fullSpeech;
+            document.getElementById('instruction-text').innerHTML = `اِخْتَرِ الْمَقْطَعَ الصَّحِيحَ لِتُكْمِلَ الْكَلِمَةَ:`;
+
+            setTimeout(() => speakArabic(fullSpeech, null, 0.78), 250);
+
+            const options = shuffleArray(current.choices);
+            const content = document.getElementById('stage-content');
+            content.innerHTML = `
+                <div class="text-center mb-6">
+                    <div id="missing-word-box" class="inline-flex items-center gap-4 bg-gradient-to-r from-amber-100 to-orange-100 border-4 border-orange-400 rounded-3xl px-8 py-5 shadow-md">
+                        <span class="text-5xl">${current.emoji}</span>
+                        <span id="missing-word-display" class="text-4xl sm:text-6xl font-black text-slate-800 tracking-wide arabic-vowel-text" dir="rtl">${current.display}</span>
+                        <button onclick="speakItemClearly('${current.word}')" class="btn-3d bg-orange-500 hover:bg-orange-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow">🔊</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto w-full" id="missing-options-grid"></div>
+            `;
+
+            const grid = document.getElementById('missing-options-grid');
+            options.forEach(opt => {
+                const btn = document.createElement('div');
+                btn.className = 'btn-3d bg-white hover:bg-sky-50 border-4 border-sky-400 rounded-3xl p-5 flex flex-col items-center justify-center text-slate-800 cursor-pointer';
+                btn.innerHTML = `
+                    <span class="text-4xl sm:text-5xl font-black arabic-vowel-text my-2">${opt}</span>
+                    <button type="button" class="mt-2 bg-sky-100 hover:bg-sky-200 text-sky-900 font-extrabold text-sm px-4 py-1 rounded-full flex items-center gap-1"
+                        onclick="event.stopPropagation(); speakItemClearly('${opt}')">
+                        <span>🔊</span><span>اِسْمَعْ</span>
+                    </button>
+                `;
+                btn.onclick = () => {
+                    if (gameState.questionSolved) return;
+                    if (opt === current.missing) {
+                        document.getElementById('missing-word-display').textContent = current.word;
+                        document.getElementById('missing-word-box').classList.replace('border-orange-400', 'border-green-500');
+                        btn.classList.replace('border-sky-400', 'border-green-500');
+                        btn.classList.add('!bg-green-100', 'animate-pop-success', 'ring-4', 'ring-green-300');
+                        handleCorrectAnswer(current.word);
+                    } else {
+                        btn.classList.add('animate-gentle-shake', '!border-rose-400', '!bg-rose-50');
+                        setTimeout(() => btn.classList.remove('animate-gentle-shake', '!border-rose-400', '!bg-rose-50'), 600);
+                        handleWrongAnswer();
+                    }
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        // ==========================================
+        // المرحلة ٦: التَّحَدِّي الشَّامِلُ لِكَلِمَاتِ حَرْفِ التَّاءِ (يغطي الكلمات التسع كاملة)
+        // ==========================================
+        function setupStage6ComprehensiveWords() {
+            const groups = [
+                [
+                    { text: 'تالا', emoji: '👧' },
+                    { text: 'توت', emoji: '🫐' },
+                    { text: 'تين', emoji: '🌿' }
+                ],
+                [
+                    { text: 'تِلال', emoji: '⛰️' },
+                    { text: 'تُمور', emoji: '🌴' },
+                    { text: 'تَميم', emoji: '👦' }
+                ],
+                [
+                    { text: 'تامِر', emoji: '🧑' },
+                    { text: 'تَمام', emoji: '👌' },
+                    { text: 'بَتول', emoji: '🧕' }
+                ]
+            ];
+
+            gameState.stageQuestions = groups.map(grp => {
+                const target = grp[Math.floor(Math.random() * grp.length)];
+                return {
+                    target: target,
+                    options: shuffleArray(grp)
+                };
+            });
+        }
+
+        function renderStage6WordQuestion() {
+            gameState.questionSolved = false;
+            gameState.currentTargetSyllable = null;
+            hideFeedback();
+            const total = gameState.stageQuestions.length;
+            const currentGroupQ = gameState.stageQuestions[gameState.currentQuestionIndex];
+            const targetWord = currentGroupQ.target;
+            renderProgressDots(total, gameState.currentQuestionIndex);
+
+            const fullSpeech = `يَا ${gameState.studentName}، اِسْمَعِ الْكَلِمَةَ وَاخْتَرْهَا: ${prepareTextForSpeech(targetWord.text)}`;
+            gameState.currentInstructionToSpeak = fullSpeech;
+            document.getElementById('instruction-text').innerHTML = `اِسْمَعْ نُطْقَ الْكَلِمَةِ بِوُضُوحٍ وَاخْتَرِ الْبِطَاقَةَ الصَّحِيحَةَ:`;
+
+            setTimeout(() => speakArabic(fullSpeech, null, 0.78), 250);
+
+            const content = document.getElementById('stage-content');
+            content.innerHTML = `
+                <div class="text-center mb-6">
+                    <button onclick="speakItemClearly('${targetWord.text}')" class="btn-3d bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black text-xl sm:text-2xl px-8 py-4 rounded-full inline-flex items-center gap-3 shadow-lg">
+                        <span class="text-3xl">🔊</span>
+                        <span>اِسْمَعِ الْكَلِمَةَ الْمَطْلُوبَةَ</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto w-full" id="word-options-grid"></div>
+            `;
+
+            const grid = document.getElementById('word-options-grid');
+            currentGroupQ.options.forEach(opt => {
+                const card = document.createElement('div');
+                card.className = 'btn-3d bg-white hover:bg-amber-50 border-4 border-sky-300 rounded-3xl p-5 sm:p-6 flex flex-col items-center justify-center cursor-pointer shadow-md';
+                card.innerHTML = `
+                    <span class="text-4xl sm:text-5xl font-black text-slate-800 my-3 arabic-vowel-text">${opt.text}</span>
+                    <button type="button" class="mt-2 bg-sky-100 hover:bg-sky-200 text-sky-900 font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-full flex items-center gap-1.5"
+                        onclick="event.stopPropagation(); speakItemClearly('${opt.text}')">
+                        <span>🔊</span><span>اِسْمَعْ</span>
+                    </button>
+                `;
+                card.onclick = () => checkMultipleChoiceAnswer(card, opt.text === targetWord.text, opt.text);
+                grid.appendChild(card);
+            });
+        }
+
+        // ==========================================
+        // ٦. التحقق من الإجابات والتعزيز الفوري
+        // ==========================================
+        function checkMultipleChoiceAnswer(cardElement, isCorrect, spokenItem) {
+            if (gameState.questionSolved) return;
+
+            if (isCorrect) {
+                cardElement.classList.remove('border-sky-300', 'border-rose-400', 'border-cyan-400', 'border-amber-400', 'border-orange-400', 'border-emerald-400', 'border-sky-400');
+                cardElement.classList.add('!bg-green-100', '!border-green-500', 'animate-pop-success', 'ring-4', 'ring-green-300');
+                handleCorrectAnswer(spokenItem);
+            } else {
+                cardElement.classList.add('animate-gentle-shake', '!border-rose-400');
+                setTimeout(() => {
+                    cardElement.classList.remove('animate-gentle-shake', '!border-rose-400');
+                }, 650);
+                handleWrongAnswer();
+            }
+        }
+
+        function handleCorrectAnswer(spokenWordOrSyllable) {
+            gameState.questionSolved = true;
+            addStar(1);
+            playSuccessSound();
+
+            const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
+            const banner = document.getElementById('feedback-banner');
+            banner.className = 'mt-6 p-4 rounded-2xl text-center font-black text-xl sm:text-2xl border-4 bg-green-100 border-green-500 text-green-800 animate-pop-success arabic-vowel-text';
+            banner.innerHTML = `🌟 ${praise} (${gameState.studentName}) 🌟`;
+            banner.classList.remove('hidden');
+
+            speakArabic(`${praise} يَا ${gameState.studentName}!`, null, 0.88);
+
+            // تحديد نص زر الانتقال التالي (٦ مراحل إجمالاً)
+            const isLastQuestionInStage = gameState.currentQuestionIndex >= gameState.stageQuestions.length - 1;
+            if (isLastQuestionInStage) {
+                if (gameState.currentStage < 6) {
+                    showNextButton(`اِنْتَقِلْ إِلَى الْمَرْحَلَةِ ${toArabicDigits(gameState.currentStage + 1)} 🚀`);
+                } else {
+                    showNextButton('اِسْتَلِمْ شَهَادَةَ التَّقْدِيرِ 🏆');
+                }
+            } else {
+                showNextButton('السُّؤَالُ التَّالِي ⬅️');
+            }
+        }
+
+        function handleWrongAnswer() {
+            playGentleRetrySound();
+            const retryMsg = ENCOURAGE_RETRY_PHRASES[Math.floor(Math.random() * ENCOURAGE_RETRY_PHRASES.length)];
+            const banner = document.getElementById('feedback-banner');
+            banner.className = 'mt-6 p-4 rounded-2xl text-center font-black text-lg sm:text-xl border-4 bg-amber-100 border-amber-400 text-amber-900 animate-gentle-shake arabic-vowel-text';
+            banner.innerHTML = `💛 ${retryMsg}`;
+            banner.classList.remove('hidden');
+
+            speakArabic(retryMsg, null, 0.88);
+        }
+
+        function hideFeedback() {
+            document.getElementById('feedback-banner').classList.add('hidden');
+            document.getElementById('next-action-container').classList.add('hidden');
+        }
+
+        function showNextButton(label) {
+            const container = document.getElementById('next-action-container');
+            document.getElementById('next-btn-text').textContent = label;
+            container.classList.remove('hidden');
+        }
+
+        function handleNextStep() {
+            playClickSound();
+            if (gameState.currentQuestionIndex < gameState.stageQuestions.length - 1) {
+                gameState.currentQuestionIndex++;
+                if (gameState.currentStage === 1) renderStage1ShapeQuestion();
+                else if (gameState.currentStage === 2) renderSyllableChoiceQuestion('long');
+                else if (gameState.currentStage === 3) renderSyllableChoiceQuestion('short');
+                else if (gameState.currentStage === 4) renderStage4BalloonQuestion();
+                else if (gameState.currentStage === 5) renderStage5Question();
+                else if (gameState.currentStage === 6) renderStage6WordQuestion();
+            } else {
+                if (gameState.currentStage < 6) {
+                    loadStage(gameState.currentStage + 1);
+                } else {
+                    showCertificate();
+                }
+            }
+        }
+
+        // ==========================================
+        // ٧. شهادة التقدير الختامية
+        // ==========================================
+        function showCertificate() {
+            playSuccessSound();
+            document.getElementById('screen-game').classList.add('hidden');
+            document.getElementById('header-stats').classList.add('hidden');
+            document.getElementById('screen-certificate').classList.remove('hidden');
+
+            document.getElementById('cert-student-name').textContent = gameState.studentName;
+            document.getElementById('cert-stars').textContent = `${toArabicDigits(gameState.stars)} / ١٨ ⭐`;
+
+            setTimeout(() => {
+                readCertificateAloud();
+            }, 400);
+        }
+
+        function readCertificateAloud() {
+            const certSpeech = `مُبَارَكٌ يَا بَطَلُ ${gameState.studentName}! شَهَادَةُ تَقْدِيرٍ وَتَفَوُّقٍ مِنْ مَدْرَسَةِ ذُكُورِ الشَّهِيدَيْنِ بِلَالٍ وَأَشْرَفَ الْأَسَاسِيَّةِ، وَمِنْ مُعَلِّمِكَ مُحَمَّد عَبْدِ الرَّحْمَنِ، لِإِتْقَانِكَ دَرْسَ حَرْفِ التَّاءِ بِتَفَوُّقٍ وَنَتِيجَةِ مِئَةٍ بِالْمِئَةِ!`;
+            speakArabic(certSpeech, null, 0.88);
+        }
+
+        function restartWholeGame() {
+            playClickSound();
+            document.getElementById('screen-certificate').classList.add('hidden');
+            document.getElementById('screen-welcome').classList.remove('hidden');
+            document.getElementById('student-name-input').value = gameState.studentName;
+            speakWelcome();
+        }
+    </script>
+</body>
+</html>
